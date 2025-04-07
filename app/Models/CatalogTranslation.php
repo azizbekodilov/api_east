@@ -12,7 +12,7 @@ class CatalogTranslation extends Model
 
     public function catalog()
     {
-        return $this->belongsTo(Catalog::class, 'catalog_id')
+        return $this->belongsTo(Catalog::class, 'catalog_id');
     }
 
 }
