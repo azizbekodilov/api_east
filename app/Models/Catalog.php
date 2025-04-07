@@ -27,4 +27,9 @@ class Catalog extends Model
         return $this->hasMany(self::class, 'parent_id');
     }
 
+    public function children_for_main()
+    {
+        return $this->hasMany(self::class, 'parent_id')->limit(2);
+    }
+
 }

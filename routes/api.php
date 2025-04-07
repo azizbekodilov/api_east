@@ -17,6 +17,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     Route::prefix('main')->group(function(){
         Route::get("/sliders", [IndexController::class, 'slider']);
         Route::get("/products", [IndexController::class, 'product']);
+        Route::get("/our_catalog", [IndexController::class, 'ourCatalog']);
         Route::get("/news", [IndexController::class, 'news']);
     });
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);

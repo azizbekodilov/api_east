@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\AllCatalogResource;
 use App\Http\Resources\Main\SliderMainResource;
+use App\Http\Resources\MainOurCatalogResource;
 use App\Http\Resources\ProductResource;
+use App\Models\Catalog;
 use App\Models\CertificateTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
@@ -46,6 +49,16 @@ class IndexController extends Controller
     public function certificate()
     {
         return CertificateTranslation::where('locale', App::getLocale())->latest()->get();
+    }
+
+    /**
+     * Display a listing of the resource.
+     */
+    public function ourCatalog()
+    {
+        return MainOurCatalogResource::collection(Catalog::with(['children_for_main'=>function($query) {
+            return $query->limit(4);
+        }])->where('parent_id',null)->take(4)->get());
     }
 
     /**

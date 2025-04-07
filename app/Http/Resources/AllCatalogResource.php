@@ -17,7 +17,6 @@ class AllCatalogResource extends JsonResource
         return [
             'id' => $this->id,
             'parent_id' => $this->parent_id,
-            'media' => $this->media,
             'title' => $this->title,
             'text' => $this->text,
             'meta_title' => $this->meta_title,
