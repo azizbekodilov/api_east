@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Main\SliderMainResource;
+use App\Http\Resources\ProductResource;
 use App\Models\CertificateTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
@@ -36,7 +37,7 @@ class IndexController extends Controller
      */
     public function product()
     {
-        return Product::get();
+        return ProductResource::collection(ProductTranslation::where('locale', app()->getLocale())->get());
     }
 
     /**

@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Resources\AllCatalogResource;
 use App\Models\Catalog;
+use App\Models\CatalogTranslation;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -34,7 +37,7 @@ class CatalogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Catalog $catalog)
+    public function show(string $id)
     {
         //
     }
@@ -42,7 +45,7 @@ class CatalogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Catalog $catalog)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +53,7 @@ class CatalogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Catalog $catalog)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,8 +61,15 @@ class CatalogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Catalog $catalog)
+    public function destroy(string $id)
     {
         //
     }
+
+
+    public function allCatalogs()
+    {
+        return AllCatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
+    }
+
 }
