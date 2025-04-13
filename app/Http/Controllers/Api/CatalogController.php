@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AllCatalogResource;
+use App\Http\Resources\CatalogResource;
 use App\Models\Catalog;
 use App\Models\CatalogTranslation;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        return AllCatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
+        return CatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
     }
 
     /**

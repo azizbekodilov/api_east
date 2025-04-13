@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\CatalogTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -23,21 +24,16 @@ class CatalogResource extends JsonResource
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,
             'created_at' => $this->created_at,
+            'children_for_main' => $this->children_for_main(),
         ];
     }
 
-    public function attributeDetail()
+    public function children_for_main()
     {
-        $data = [];
-        foreach ($this->product->productAttribute as $key => $value) {
-            $data [] =  [
-                    'id' => $value->id,
-                    'title' => $value->title,
-                    'value' => $value->pivot->value,
-                    'sort' => $value->pivot->sort,
-                    'is_filter' => $value->is_filter,
-                ];
+        return CatalogTranslation::select('title')->whereHas('catalog', function($q)
+        {
+            $q->where('parent_id', $this->id);
         }
-        return $data;
+        )->get();
     }
 }
