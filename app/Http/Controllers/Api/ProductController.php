@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ProductShowResource;
+use App\Models\Product;
 use App\Models\ProductTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -39,10 +40,11 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        $data = ProductTranslation::firstOrFail($id);
-        return ProductShowResource::collection($data);
+        // dd($request->id);
+        return ProductTranslation::where('id', $request->id)->first();
+        // return ProductShowResource::collection($data);
     }
 
     /**

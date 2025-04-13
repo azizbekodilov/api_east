@@ -31,7 +31,7 @@ class MainOurCatalogResource extends JsonResource
         {
             $q->where('parent_id', $this->id);
         }
-        )->take(2)->get();
+        )->take(4)->get();
     }
 
 }

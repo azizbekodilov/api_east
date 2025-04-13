@@ -21,9 +21,10 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
         Route::get("/news", [IndexController::class, 'news']);
     });
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);
+    Route::get("/catalogs", [CatalogController::class, 'index']);
     Route::get("/sliders", [SliderController::class, 'index']);
     Route::get("/products", [ProductController::class, 'index']);
-    Route::get("/product/{id}", [ProductController::class, 'show']);
+    Route::get("/products/{id}", [ProductController::class, 'show']);
     Route::get("/news", [NewsController::class, 'index']);
     Route::get("/news/{id}", [NewsController::class, 'show']);
 });

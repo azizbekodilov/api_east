@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\News;
+use App\Models\NewsTranslation;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -12,7 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
+        return NewsTranslation::where('locale', App::getLocale())->get();
     }
 
     /**
@@ -34,9 +36,9 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        return NewsTranslation::where('id', $request->id)->first();
     }
 
     /**

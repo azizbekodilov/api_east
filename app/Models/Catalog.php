@@ -29,7 +29,12 @@ class Catalog extends Model
 
     public function children_for_main()
     {
-        return $this->hasMany(self::class, 'parent_id')->limit(2);
+        return $this->hasMany(self::class, 'parent_id')->take(2);
+    }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
     }
 
 }

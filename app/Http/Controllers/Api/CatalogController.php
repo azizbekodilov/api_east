@@ -15,7 +15,7 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        //
+        return AllCatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
     }
 
     /**
@@ -37,9 +37,9 @@ class CatalogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Request $request)
     {
-        //
+        return AllCatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
     }
 
     /**
