@@ -17,8 +17,8 @@ class Employee extends Model
 
     public $translatedAttributes = ['employee_id','title', 'profession', 'text'];
 
-    public function newsTranslation()
+    public function employeeTranslation()
     {
-        return $this->hasMany(NewsTranslation::class);
+        return $this->hasMany(EmployeeTranslation::class);
     }
 }
