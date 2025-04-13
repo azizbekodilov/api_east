@@ -1,16 +1,13 @@
 <?php
 
-use App\Http\Controllers\Api\CatalogController;
+use App\Http\Middleware\Localization;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IndexController;
 use App\Http\Controllers\Api\NewsController;
 use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\SliderController;
-use App\Http\Controllers\OurTeamController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PartnerController;
-use App\Http\Middleware\Localization;
-use App\Models\OurTeam;
-use App\Models\Sertificate;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\CatalogController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -49,7 +46,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     // yangilik haqida ma'lumot
     Route::get("/news/{slug}", [NewsController::class, 'show']);
     // bizning jamoa
-    Route::get('/our_team', [OurTeamController::class, 'index']);
+    Route::get('/our_team', [EmployeeController::class, 'index']);
     // xamkorlar
     Route::get('/partners', [PartnerController::class, 'index']);
 });

@@ -2,11 +2,24 @@
 
 namespace App\Models;
 
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
+    use Translatable;
+
     protected $fillable = [
-        'media', 'sort'
+        'media', 'sort',
     ];
+
+    public $timestamps = false;
+
+    public $translatedAttributes = ['news_id','locale', 'title', 'info', 'text'];
+
+    public function newsTranslation()
+    {
+        return $this->hasMany(NewsTranslation::class);
+    }
+
 }

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sertificate extends Model
 {
-    //
+    protected $fillable = ['media'];
 }
