@@ -15,9 +15,9 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $req)
     {
-        $data = ProductTranslation::where('locale', App::getLocale())->get();
+        $data = ProductTranslation::where('slug', $req->slug)->get();
         return ProductResource::collection($data);
     }
 

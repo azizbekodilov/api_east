@@ -2,11 +2,12 @@
 
 namespace App\Http\Resources;
 
-use App\Models\CatalogTranslation;
+use App\Models\Product;
+use App\Models\ProductTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class CatalogResource extends JsonResource
+class CatalogShowResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -24,16 +25,12 @@ class CatalogResource extends JsonResource
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,
             'created_at' => $this->created_at,
-            'children_for_main' => $this->children_for_main(),
+            'products' => $this->allProducts(),
         ];
     }
 
-    public function children_for_main()
+    public function allProducts()
     {
-        return CatalogTranslation::select('title', 'slug')->whereHas('catalog', function($q)
-        {
-            $q->where('parent_id', $this->id);
-        }
-        )->get();
+        return Product::where('catalog_id', $this->id)->get();
     }
 }

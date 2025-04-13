@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\AllCatalogResource;
 use App\Http\Resources\CatalogResource;
+use App\Http\Resources\CatalogShowResource;
+use App\Http\Resources\ProductListResource;
 use App\Models\Catalog;
 use App\Models\CatalogTranslation;
+use App\Models\Product;
+use App\Models\ProductTranslation;
 use Illuminate\Http\Request;
 
 class CatalogController extends Controller
@@ -40,7 +44,7 @@ class CatalogController extends Controller
      */
     public function show(Request $request)
     {
-        return AllCatalogResource::collection(Catalog::with('children')->where('parent_id',null)->get());
+        return CatalogShowResource::collection(CatalogTranslation::where('slug', $request->slug)->get());
     }
 
     /**
