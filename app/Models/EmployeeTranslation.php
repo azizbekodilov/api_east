@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeTranslation extends Model
 {
     protected $fillable = [
-        'employee', 'title', 'text', 'short_text', 'meta_title', 'meta_description', 'locale'
+        'employee_id','title', 'profession', 'text'
     ];
+
+    public function employee()
+
+    {
+        return $this->belongsTo(Employee::class);
+    }
+
 }
