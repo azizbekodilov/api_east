@@ -47,7 +47,8 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return ProductShowResource::collection(ProductTranslation::where('id', $request->id)->first());
+        return Product::find($request->id);
+        return ProductShowResource::collection($data);
     }
 
     /**

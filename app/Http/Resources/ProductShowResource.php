@@ -21,7 +21,7 @@ class ProductShowResource extends JsonResource
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
-            // 'locale' => $this->locale,
+            'locale' => $this->locale,
             'created_at' => $this->created_at,
         ];
     }
