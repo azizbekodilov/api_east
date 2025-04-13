@@ -29,7 +29,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);
     // kataloglar ro'yhati
     Route::get("/catalogs", [CatalogController::class, 'index']);
-    // tanlangan katalog subkatalog bilan
+    // childreni bor katalog subkataloglari
     Route::get("/catalogs/{slug}", [CatalogController::class, 'show']);
     // katalogda tanlangan tovarlar ro'yxati
     Route::get("/products/{slug}", [ProductController::class, 'index']);

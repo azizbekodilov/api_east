@@ -44,7 +44,9 @@ class CatalogController extends Controller
      */
     public function show(Request $request)
     {
-        return CatalogShowResource::collection(CatalogTranslation::where('slug', $request->slug)->get());
+        return CatalogResource::collection(CatalogTranslation::whereHas('catalog', function($q){
+            $q->where('parent_id',null);
+        })->where('slug', $request->slug)->get());
     }
 
     /**
