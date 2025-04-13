@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CatalogShowResource;
+use App\Http\Resources\ProductListResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\ProductShowResource;
+use App\Models\CatalogTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
 use Illuminate\Http\Request;
@@ -17,8 +20,10 @@ class ProductController extends Controller
      */
     public function index(Request $req)
     {
-        $data = ProductTranslation::where('slug', $req->slug)->get();
-        return ProductResource::collection($data);
+        $data = CatalogTranslation::whereHas('catalog', function($q){
+            $q->whereNotNull('parent_id');
+        })->where('slug', $req->slug)->get();
+        return CatalogShowResource::collection($data);
     }
 
     /**
