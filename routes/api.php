@@ -19,10 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware([Localization::class])->prefix('{locale}')->group(function () {
     Route::prefix('main')->group(function(){
+        // bosh sahifa slider
         Route::get("/sliders", [IndexController::class, 'slider']);
+        // bosh sahifa tovarlar
         Route::get("/products", [IndexController::class, 'product']);
+        // bosh sahifa bizning katalog
         Route::get("/our_catalog", [IndexController::class, 'ourCatalog']);
+        // bosh sahifa bizning yangiliklar
         Route::get("/news", [IndexController::class, 'news']);
+        // bosh sahifa sertifikat
         Route::get("/sertificate", [IndexController::class, 'sertificate']);
     });
     // barcha kataloglar subkataloglar bilan
