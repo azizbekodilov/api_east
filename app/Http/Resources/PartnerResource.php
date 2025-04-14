@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
 
 class PartnerResource extends JsonResource
 {
@@ -14,6 +15,13 @@ class PartnerResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            'media' => $this->media(),
+        ];
+    }
+
+    public function media()
+    {
+        return URL::asset('/storage/partners/'.$this->media);
     }
 }
