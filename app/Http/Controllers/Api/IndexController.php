@@ -9,6 +9,8 @@ use App\Http\Resources\MainOurCatalogResource;
 use App\Http\Resources\ProductResource;
 use App\Models\Catalog;
 use App\Models\CertificateTranslation;
+use App\Models\News;
+use App\Models\NewsTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
 use App\Models\Slider;
@@ -32,7 +34,7 @@ class IndexController extends Controller
      */
     public function news()
     {
-        // return News::where('locale', App::getLocale())->latest()->get();
+        return NewsTranslation::where('locale', App::getLocale())->latest()->get();
     }
 
     /**
