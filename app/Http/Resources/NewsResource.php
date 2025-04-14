@@ -20,6 +20,7 @@ class NewsResource extends JsonResource
             'media' => $this->media(),
             'title' => $this->title,
             'text' => $this->text,
+            'slug' => $this->slug,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,
