@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Api\CatalogController;
+use App\Http\Controllers\Api\PartnerController as ApiPartnerController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -44,5 +45,5 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     // bizning jamoa
     Route::get('/our_team', [EmployeeController::class, 'index']);
     // xamkorlar
-    Route::get('/partners', [PartnerController::class, 'index']);
+    Route::get('/partners', [ApiPartnerController::class, 'index']);
 });
