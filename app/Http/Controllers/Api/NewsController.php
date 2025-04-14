@@ -40,8 +40,7 @@ class NewsController extends Controller
      */
     public function show(Request $request)
     {
-        NewsTranslation::with('news')->where('slug', $request->slug)->first();
-        // return NewsTranslation::where('slug', $request->slug)->first();
+        return NewsTranslation::with('news')->where('slug', $request->slug)->first();
     }
 
     /**
