@@ -17,6 +17,7 @@ class PartnerResource extends JsonResource
     {
         return [
             'media' => $this->media(),
+            'title' => $this->title,
         ];
     }
 
