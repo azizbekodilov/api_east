@@ -41,10 +41,6 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     Route::get("/news", [NewsController::class, 'index']);
     // yangilik haqida ma'lumot
     Route::get("/news/{slug}", [NewsController::class, 'show']);
-    // sertifikatlar
-    Route::get("/news", [NewsController::class, 'index']);
-    // yangilik haqida ma'lumot
-    Route::get("/news/{slug}", [NewsController::class, 'show']);
     // bizning jamoa
     Route::get('/our_team', [EmployeeController::class, 'index']);
     // xamkorlar
