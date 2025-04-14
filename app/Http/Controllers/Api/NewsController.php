@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\News;
 use App\Models\NewsTranslation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class NewsController extends Controller
 {
