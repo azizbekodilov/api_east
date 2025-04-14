@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\NewsResource;
 use App\Models\News;
 use App\Models\NewsTranslation;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return NewsTranslation::where('locale', App::getLocale())->get();
+        return NewsResource::collection((News::get()));
     }
 
     /**
