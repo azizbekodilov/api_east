@@ -27,6 +27,8 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
         Route::get("/news", [IndexController::class, 'news']);
         // bosh sahifa sertifikat
         Route::get("/sertificate", [IndexController::class, 'sertificate']);
+        // bosh sahifa partners
+        Route::get('/partners', [ApiPartnerController::class, 'index']);
     });
     // barcha kataloglar subkataloglar bilan
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);
