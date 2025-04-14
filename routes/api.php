@@ -29,6 +29,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
         Route::get("/sertificate", [IndexController::class, 'sertificate']);
         // bosh sahifa partners
         Route::get('/partners', [ApiPartnerController::class, 'index']);
+        Route::get('/footer_catalog', [IndexController::class, 'footerCatalog']);
     });
     // barcha kataloglar subkataloglar bilan
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);

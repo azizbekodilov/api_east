@@ -72,6 +72,13 @@ class IndexController extends Controller
         return ProductTranslation::where('locale', App::getLocale())->latest()->get();
     }
 
+    public function footerCatalog()
+    {
+        return MainOurCatalogResource::collection(Catalog::with(['children_for_main'=>function($query) {
+            return $query->limit(4);
+        }])->where('parent_id',null)->take(4)->get());
+    }
+
     /**
      * Store a newly created resource in storage.
      */
