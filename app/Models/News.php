@@ -15,7 +15,7 @@ class News extends Model
 
     public $timestamps = false;
 
-    public $translatedAttributes = ['news_id','locale', 'title', 'info', 'text', 'slug'];
+    public $translatedAttributes = ['news_id','locale', 'title', 'info', 'text', 'slug', 'meta_title', 'meta_description'];
 
     public function newsTranslation()
     {
