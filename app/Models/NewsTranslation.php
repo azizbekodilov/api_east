@@ -12,7 +12,7 @@ class NewsTranslation extends Model
 
     public function news()
     {
-        return $this->belongsTo(NewsTranslation::class, 'news_id');
+        return $this->belongsTo(News::class, 'news_id');
     }
 
 
