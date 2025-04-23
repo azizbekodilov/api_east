@@ -23,6 +23,6 @@ class CatalogTranslationTitleSlugResource extends JsonResource
 
     public function slug()
     {
-        return URL::full('/catalogs/'.$this->slug);
+        return URL::secure('/api/'.app()->getLocale().'/products/'.$this->slug);
     }
 }
