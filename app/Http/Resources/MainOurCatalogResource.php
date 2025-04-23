@@ -27,11 +27,12 @@ class MainOurCatalogResource extends JsonResource
 
     public function children_for_main()
     {
-        return CatalogTranslation::select('title', 'slug')->whereHas('catalog', function($q)
+        $data = CatalogTranslation::select('title', 'slug')->whereHas('catalog', function($q)
         {
             $q->where('parent_id', $this->id);
         }
         )->take(4)->get();
+        return CatalogTranslationTitleSlugResource::collection($data);
     }
 
 }
