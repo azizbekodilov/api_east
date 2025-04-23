@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CallRequestStoreRequest;
 use App\Http\Resources\AllCatalogResource;
 use App\Http\Resources\Main\SliderMainResource;
 use App\Http\Resources\MainOurCatalogResource;
 use App\Http\Resources\NewsResource;
 use App\Http\Resources\ProductResource;
+use App\Models\CallRequests;
 use App\Models\Catalog;
 use App\Models\CertificateTranslation;
 use App\Models\News;
@@ -79,29 +81,18 @@ class IndexController extends Controller
         }])->where('parent_id',null)->take(4)->get());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function requestCall(CallRequestStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        CallRequests::create($validated);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function requestContact(CallRequestStoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        CallRequests::create($validated);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
