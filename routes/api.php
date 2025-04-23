@@ -31,8 +31,6 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
         Route::get('/partners', [ApiPartnerController::class, 'index']);
         Route::get('/footer_catalog', [IndexController::class, 'footerCatalog']);
     });
-    Route::post('/request_call', [IndexController::class, 'requestCall']);
-    Route::post('/request_contact', [IndexController::class, 'requestContact']);
     // barcha kataloglar subkataloglar bilan
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);
     // kataloglar ro'yhati
@@ -52,3 +50,6 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     // xamkorlar
     Route::get('/partners', [ApiPartnerController::class, 'index']);
 });
+
+Route::post('/request_call', [IndexController::class, 'requestCall']);
+Route::post('/request_contact', [IndexController::class, 'requestContact']);
