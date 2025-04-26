@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CallRequestStoreRequest;
+use App\Http\Requests\StoreRequestPriceRequest;
 use App\Http\Resources\AllCatalogResource;
 use App\Http\Resources\Main\SliderMainResource;
 use App\Http\Resources\MainOurCatalogResource;
@@ -16,6 +17,7 @@ use App\Models\News;
 use App\Models\NewsTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
+use App\Models\RequestPrice;
 use App\Models\Slider;
 use App\Models\SliderTranslation;
 use Illuminate\Http\Request;
@@ -91,6 +93,12 @@ class IndexController extends Controller
     {
         $validated = $request->validated();
         CallRequests::create($validated);
+    }
+
+    public function requestPrice(StoreRequestPriceRequest $request)
+    {
+        $validated = $request->validated();
+        RequestPrice::create($validated);
     }
 
     public function search(Request $request)

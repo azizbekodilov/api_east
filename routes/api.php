@@ -54,3 +54,4 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
 
 Route::post('/request_call', [IndexController::class, 'requestCall']);
 Route::post('/request_contact', [IndexController::class, 'requestContact']);
+Route::post('/request_price', [IndexController::class, 'requestPrice']);
