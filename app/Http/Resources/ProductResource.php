@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class ProductResource extends JsonResource
@@ -21,7 +22,7 @@ class ProductResource extends JsonResource
             'product_id'=>$this->product->id,
             'title' => $this->title,
             'name' => $this->text,
-            'slug' => $this->slug,
+            'slug' => $this->slug(),
             'locale' => $this->locale,
             'short_text' => $this->short_text,
             'meta_title' => $this->meta_title,
@@ -43,6 +44,11 @@ class ProductResource extends JsonResource
                 ];
         }
         return $data;
+    }
+
+    public function slug()
+    {
+        return URL::secure('/api/'.app()->getLocale().'/products/'.$this->slug);
     }
 
 }
