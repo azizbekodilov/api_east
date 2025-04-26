@@ -31,7 +31,6 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
         Route::get('/partners', [ApiPartnerController::class, 'index']);
         Route::get('/footer_catalog', [IndexController::class, 'footerCatalog']);
     });
-    Route::get('/search/{search}', [IndexController::class, 'search']);
     // barcha kataloglar subkataloglar bilan
     Route::get("/all_catalogs", [CatalogController::class, 'allCatalogs']);
     // kataloglar ro'yhati
@@ -47,6 +46,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     // yangilik haqida ma'lumot
     Route::get("/news/{slug}", [NewsController::class, 'show']);
     // bizning jamoa
+    Route::get('/search/{search}', [IndexController::class, 'search']);
     Route::get('/our_team', [EmployeeController::class, 'index']);
     // xamkorlar
     Route::get('/partners', [ApiPartnerController::class, 'index']);
