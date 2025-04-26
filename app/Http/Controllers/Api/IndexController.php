@@ -93,8 +93,9 @@ class IndexController extends Controller
         CallRequests::create($validated);
     }
 
-    public function search(Request $search)
+    public function search(Request $request)
     {
+        $search = $request->input('search');
         $data = ProductTranslation::
         orWhere('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
         ->get();
