@@ -95,9 +95,11 @@ class IndexController extends Controller
 
     public function search(Request $search)
     {
-        ProductTranslation::
+        $data = ProductTranslation::
         orWhere('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
         ->get();
+
+        return response()->json($data);
     }
 
 
