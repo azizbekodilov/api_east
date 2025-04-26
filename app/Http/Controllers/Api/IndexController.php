@@ -87,21 +87,21 @@ class IndexController extends Controller
     {
         $validated = $request->validated();
         CallRequests::create($validated);
-        return response()->json('Ваши сообщение успешьно отправлено');
+        return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
     public function requestContact(CallRequestStoreRequest $request)
     {
         $validated = $request->validated();
         CallRequests::create($validated);
-        return response()->json('Ваши сообщение успешьно отправлено');
+        return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
     public function requestPrice(StoreRequestPriceRequest $request)
     {
         $validated = $request->validated();
         RequestPrice::create($validated);
-        return response()->json('Ваши сообщение успешьно отправлено');
+        return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
     public function search(Request $request)
