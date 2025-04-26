@@ -96,15 +96,7 @@ class IndexController extends Controller
     public function search(Request $search)
     {
         ProductTranslation::
-        whereHas('product', function($q) use($search){
-            $q->whereHas('catalog', function ($qr) use($search){
-                $qr->where('catalogTanslation', function($qry) use($search){
-                    $qry->where('title','LIKE',"%{$search}%");
-                    $qry->orWhere('text','LIKE',"%{$search}%");
-                });
-            });
-        })
-        ->orWhere('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
+        orWhere('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
         ->get();
     }
 
