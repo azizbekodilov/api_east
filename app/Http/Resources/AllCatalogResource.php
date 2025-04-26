@@ -36,6 +36,6 @@ class AllCatalogResource extends JsonResource
 
     public function children_for_main()
     {
-        return AllCatalogChildrenResource::collection(CatalogTranslation::select('title')->whereHas('catalog', function($q){$q->where('parent_id', $this->id);})->get());
+        return AllCatalogChildrenResource::collection(CatalogTranslation::select('title', 'slug')->whereHas('catalog', function($q){$q->where('parent_id', $this->id);})->get());
     }
 }
