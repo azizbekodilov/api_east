@@ -93,7 +93,7 @@ class IndexController extends Controller
         CallRequests::create($validated);
     }
 
-    public function search($search)
+    public function search(Request $search)
     {
         ProductTranslation::
         whereHas('product', function($q) use($search){
