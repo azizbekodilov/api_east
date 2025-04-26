@@ -95,7 +95,7 @@ class IndexController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->input('search');
+        $search = $request->search;
         $data = ProductTranslation::
         where('title', 'LIKE', '%' . $search . '%')->orWhere('text', 'LIKE', '%' . $search . '%')
         ->get();
