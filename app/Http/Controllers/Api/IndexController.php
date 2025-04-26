@@ -97,7 +97,7 @@ class IndexController extends Controller
     {
         $search = $request->input('search');
         $data = ProductTranslation::
-        orWhere('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
+        where('title','LIKE',"%{$search}%")->orWhere('text','LIKE',"%{$search}%")
         ->get();
 
         return response()->json($data);
