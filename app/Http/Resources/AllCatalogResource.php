@@ -5,6 +5,7 @@ namespace App\Http\Resources;
 use App\Models\CatalogTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
 
 class AllCatalogResource extends JsonResource
 {
@@ -18,6 +19,7 @@ class AllCatalogResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'title' => $this->slug(),
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
@@ -25,6 +27,11 @@ class AllCatalogResource extends JsonResource
             'created_at' => $this->created_at,
             'children_cats' => $this->children_for_main()
         ];
+    }
+
+    public function slug()
+    {
+        return URL::secure('/api/'.app()->getLocale().'/products/'.$this->slug);
     }
 
     public function children_for_main()
