@@ -19,7 +19,7 @@ class AllCatalogResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'title' => $this->slug(),
+            'slug' => $this->slug(),
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
@@ -31,15 +31,11 @@ class AllCatalogResource extends JsonResource
 
     public function slug()
     {
-        return URL::secure('/api/'.app()->getLocale().'/products/'.$this->slug);
+        return URL::secure('/api/'.app()->getLocale().'/catalogs/'.$this->slug);
     }
 
     public function children_for_main()
     {
-        return CatalogTranslation::select('title')->whereHas('catalog', function($q)
-        {
-            $q->where('parent_id', $this->id);
-        }
-        )->get();
+        return AllCatalogChildrenResource::collection(CatalogTranslation::select('title')->whereHas('catalog', function($q){$q->where('parent_id', $this->id);})->get());
     }
 }

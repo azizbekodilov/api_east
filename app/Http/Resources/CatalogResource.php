@@ -18,6 +18,7 @@ class CatalogResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media,
+            'slug' => $this->slug,
             'title' => $this->title,
             'text' => $this->text,
             'meta_title' => $this->meta_title,
