@@ -47,8 +47,7 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        $data = Product::where('id',$request->id)->first();
-        return ProductShowResource::collection($data);
+        return ProductShowResource::collection(Product::find($request->id));
     }
 
     /**
