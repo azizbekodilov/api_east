@@ -4,6 +4,7 @@ namespace App\Http\Resources\Main;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\URL;
 
 class SliderMainResource extends JsonResource
 {
@@ -19,8 +20,13 @@ class SliderMainResource extends JsonResource
             'title' => $this->title,
             'info' => $this->info,
             'sort' => $this->sort,
-            'media' => $this->media,
+            'media' => $this->media(),
             'locale' => $this->locale,
         ];
+    }
+
+    public function media()
+    {
+        return URL::asset($this->media);
     }
 }
