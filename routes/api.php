@@ -9,6 +9,7 @@ use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Api\CatalogController;
 use App\Http\Controllers\Api\PartnerController as ApiPartnerController;
+use App\Http\Controllers\OrderController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -55,3 +56,4 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
 Route::post('/request_call', [IndexController::class, 'requestCall']);
 Route::post('/request_contact', [IndexController::class, 'requestContact']);
 Route::post('/request_price', [IndexController::class, 'requestPrice']);
+Route::post('/save_order', [OrderController::class, 'save']);
