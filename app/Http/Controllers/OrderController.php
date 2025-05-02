@@ -21,7 +21,7 @@ class OrderController extends Controller
         $products = [];
 
         foreach ($request->product_ids as $key => $value) {
-            $products[] = 'ID: ' . Product::find($value->product_id)->id . ' Названия: ' . Product::find($value->product_id)->title;
+            $products[] = 'ID: ' . Product::find($value['product_id'])->id . ' Названия: ' . Product::find($value['product_id'])->title;
         }
 
         $text = $info . PHP_EOL . $products;
