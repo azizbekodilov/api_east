@@ -19,6 +19,7 @@ class ProductShowResource extends JsonResource
             'media' => $this->media,
             'title' => $this->title,
             'text' => $this->text,
+            'mark' => $this->mark,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,

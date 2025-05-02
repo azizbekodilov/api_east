@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use JeroenNoten\LaravelAdminLte\View\Components\Widget\Card;
 
 class Product extends Model
 {
@@ -36,6 +37,11 @@ class Product extends Model
         }
 
         return $data;
+    }
+
+    public function order($related, $table = null, $foreignPivotKey = null, $relatedPivotKey = null, $parentKey = null, $relatedKey = null, $relation = null)
+    {
+        return $this->belongsToMany(Order::class, 'order_products', 'product_id', 'order_id');
     }
 
 }
