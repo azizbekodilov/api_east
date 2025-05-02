@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 
@@ -20,7 +21,7 @@ class OrderController extends Controller
         $products = [];
 
         foreach ($request->product_ids as $key => $value) {
-            $products[] = 'ID: ' . $value->product->id . ' Названия: ' . $value->title;
+            $products[] = 'ID: ' . Product::find($value)->product->id . ' Названия: ' . Product::find($value)->product->title;
         }
 
         $text = $info . PHP_EOL . $products;
