@@ -27,6 +27,7 @@ class CatalogShowResource extends JsonResource
             'locale' => $this->locale,
             'created_at' => $this->created_at,
             'products' => $this->allProducts(),
+            'filter' => $this->filter_list(),
         ];
     }
 
@@ -38,5 +39,10 @@ class CatalogShowResource extends JsonResource
     public function media()
     {
         return URL::secure('/storage/products/'.$this->catalog->media);
+    }
+
+    public function filter_list()
+    {
+        return Product::where('catalog_id', $this->id)->pluck('thickness');
     }
 }
