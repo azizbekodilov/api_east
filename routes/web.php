@@ -17,13 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     ->name('profile');
 
 
-Route::prefix('/admin')
+Route::prefix('/east')
     ->middleware(['auth', 'verified'])
     ->group(
         function () {
             Route::get("/", HomeIndex::class);
-            Route::get("/catalog", CatalogIndex::class);
-            Route::get("/product", ProductIndex::class);
+            Route::get("/catalogs", CatalogIndex::class);
+            Route::get("/products", ProductIndex::class);
         }
     );
 

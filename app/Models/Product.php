@@ -8,16 +8,19 @@ use JeroenNoten\LaravelAdminLte\View\Components\Widget\Card;
 
 class Product extends Model
 {
-
     use Translatable;
-
     protected $fillable = [
-        'media', 'catalog_id', 'partner_id', 'price', 'update_product_id', 'balance', 'medium_tonnage', 'status', 'is_discount', 'is_main_page', 'last_update_at', 'sort',
+        'media', 'catalog_id', 'partner_id', 'price', 'update_product_id', 'balance', 'dimensions', 'medium_tonnage', 'status', 'is_discount', 'is_main_page', 'last_update_at', 'sort',
     ];
 
     protected $translatedAttributes = [
         'product_id', 'title', 'text', 'short_text', 'meta_title', 'meta_description', 'locale'
     ];
+
+    public function productTranslations()
+    {
+        return $this->hasMany(ProductTranslation::class);
+    }
 
     public function productAttribute()
     {
@@ -44,4 +47,8 @@ class Product extends Model
         return $this->belongsToMany(Order::class, 'order_products', 'product_id', 'order_id');
     }
 
+    public function partner()
+    {
+        return $this->belongsTo(Partner::class, 'partner_id');
+    }
 }

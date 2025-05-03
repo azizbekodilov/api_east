@@ -8,6 +8,6 @@ class CatalogIndex extends Component
 {
     public function render()
     {
-        return view('livewire.backend.catalog.catalog-index');
+        return view('livewire.backend.catalog.catalog-index')->extends('adminlte::page');
     }
 }
