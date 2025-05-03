@@ -18,7 +18,7 @@ class PromotionResource extends JsonResource
             'id' => $this->id,
             'media' => $this->media,
             'title' => $this->title,
-            'demission' => $this->demission,
+            'dimensions' => $this->dimensions,
             'mark' => $this->mark,
             'locale' => $this->locale,
             'created_at' => $this->created_at,
