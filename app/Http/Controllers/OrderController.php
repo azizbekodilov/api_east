@@ -11,11 +11,12 @@ class OrderController extends Controller
 {
     public function save(Request $request)
     {
-        $order = new Order();
-        $order->name = $request->name;
-        $order->phone = $request->phone;
-        $order->comment = $request->comment;
-        $order->save();
+        $validated = $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'comment' => 'nullable',
+        ]);
+        $order = Order::create($validated);
         $order->products()->attach($request->product_ids);
         $info = 'Новая заявка отправлено'. PHP_EOL . 'Имя: ' . $order->name . PHP_EOL . 'Телефон: ' . $order->phone;
         $products = '';
