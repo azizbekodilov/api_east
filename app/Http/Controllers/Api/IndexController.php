@@ -10,6 +10,7 @@ use App\Http\Resources\Main\SliderMainResource;
 use App\Http\Resources\MainOurCatalogResource;
 use App\Http\Resources\NewsResource;
 use App\Http\Resources\ProductResource;
+use App\Http\Resources\PromotionResource;
 use App\Models\CallRequests;
 use App\Models\Catalog;
 use App\Models\CertificateTranslation;
@@ -17,6 +18,7 @@ use App\Models\News;
 use App\Models\NewsTranslation;
 use App\Models\Product;
 use App\Models\ProductTranslation;
+use App\Models\Promotion;
 use App\Models\RequestPrice;
 use App\Models\Slider;
 use App\Models\SliderTranslation;
@@ -112,6 +114,13 @@ class IndexController extends Controller
         ->get();
 
         return response()->json($data);
+    }
+
+    public function promotion()
+    {
+        $data = Product::where('is_discount',1)->get();
+
+        return PromotionResource::collection($data);
     }
 
 
