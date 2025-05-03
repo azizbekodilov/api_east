@@ -5,6 +5,9 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Продукты</h1>
+                    <a href="/east/products/add" class="btn btn-primary mt-2">
+                        Добавить
+                    </a>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -42,7 +45,6 @@
                                                     <th>Названия</th>
                                                     <th>Поставщик</th>
                                                     <th>Остаток</th>
-                                                    <th>Заявки</th>
                                                     <th>Действия</th>
                                                 </tr>
                                             </thead>
@@ -54,8 +56,17 @@
                                                     <td>
                                                         {{$item->partner->title}}
                                                     </td>
-                                                    <td></td>
-                                                    <td></td>
+                                                    <td>{{$item->balance}}</td>
+                                                    <td>
+                                                        <div class="btn-group">
+                                                            <a href="/east/products/{{$item->id}}" class="btn btn-sm btn-secondary">
+                                                                <i class="fa fa-edit"></i>
+                                                            </a>
+                                                            <button disabled class="btn btn-sm btn-danger" wire:click="delete({{$item->id}})">
+                                                                <i class="fa fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

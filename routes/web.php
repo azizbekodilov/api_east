@@ -1,6 +1,8 @@
 <?php
 
 use App\Livewire\Backend\Catalog\CatalogIndex;
+use App\Livewire\Backend\Product\AddProduct;
+use App\Livewire\Backend\Product\EditProduct;
 use App\Livewire\Backend\Product\ProductIndex;
 use App\Livewire\HomeIndex;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +26,8 @@ Route::prefix('/east')
             Route::get("/", HomeIndex::class);
             Route::get("/catalogs", CatalogIndex::class);
             Route::get("/products", ProductIndex::class);
+            Route::get("/products/add", AddProduct::class);
+            Route::get("/products/{id}", EditProduct::class);
         }
     );
 

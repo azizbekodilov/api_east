@@ -8,7 +8,7 @@ class ProductTranslation extends Model
 {
 
     protected $fillable = [
-        'product_id', 'title', 'text', 'short_text', 'meta_title', 'meta_description', 'locale'
+        'product_id', 'title', 'text', 'short_text', 'slug', 'meta_title', 'meta_description', 'locale'
     ];
 
     public function product()

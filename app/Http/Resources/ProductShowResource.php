@@ -18,7 +18,7 @@ class ProductShowResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media(),
-            'title' => $this->title,
+            'title' => $this->title . ' ' . $this->dimensions,
             'text' => $this->text,
             'price' => $this->price,
             'mark' => $this->mark,
