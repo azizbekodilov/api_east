@@ -34,7 +34,7 @@ class CatalogShowResource extends JsonResource
     public function allProducts($request)
     {
         return Product::where('catalog_id', $this->id)
-        ->when($request->setFilter, function($q){
+        ->when($request->setFilter, function($q) use($request){
             $q->where('thickness', $request->setFilter);
         })
         ->get();
