@@ -22,6 +22,7 @@ class ProductResource extends JsonResource
             'product_id'=>$this->product->id,
             'title' => $this->title,
             'name' => $this->text,
+            'media' => $this->media(),
             'slug' => $this->slug(),
             'locale' => $this->locale,
             'short_text' => $this->short_text,
@@ -49,6 +50,11 @@ class ProductResource extends JsonResource
     public function slug()
     {
         return URL::secure('/api/'.app()->getLocale().'/products/'.$this->slug);
+    }
+
+    public function media()
+    {
+        return URL::secure('/storage/products/'.$this->media);
     }
 
 }

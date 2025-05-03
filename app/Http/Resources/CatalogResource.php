@@ -17,7 +17,7 @@ class CatalogResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'media' => $this->media,
+            'media' => $this->media(),
             'slug' => $this->slug,
             'title' => $this->title,
             'text' => $this->text,
@@ -36,5 +36,10 @@ class CatalogResource extends JsonResource
             $q->where('parent_id', $this->id);
         }
         )->get();
+    }
+
+    public function media()
+    {
+        return URL::secure('/storage/products/'.$this->media);
     }
 }

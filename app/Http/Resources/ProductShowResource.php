@@ -16,7 +16,7 @@ class ProductShowResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'media' => $this->media,
+            'media' => $this->media(),
             'title' => $this->title,
             'text' => $this->text,
             'mark' => $this->mark,
@@ -40,6 +40,11 @@ class ProductShowResource extends JsonResource
                 ];
         }
         return $data;
+    }
+
+    public function media()
+    {
+        return URL::secure('/storage/products/'.$this->media);
     }
 
 }
