@@ -43,6 +43,6 @@ class CatalogShowResource extends JsonResource
 
     public function filter_list()
     {
-        return Product::where('catalog_id', $this->id)->unique('thickness')->pluck('thickness');
+        return Product::where('catalog_id', $this->id)->groupBy('thickness')->pluck('thickness');
     }
 }
