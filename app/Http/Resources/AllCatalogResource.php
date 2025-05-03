@@ -19,7 +19,7 @@ class AllCatalogResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'slug' => $this->slug,
+            'slug' => $this->slug(),
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
