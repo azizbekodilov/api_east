@@ -28,6 +28,6 @@ class PromotionResource extends JsonResource
 
     public function media()
     {
-        return URL::asset('/storage/products/'.$this->media);
+        return URL::secure('/storage/products/'.$this->media);
     }
 }
