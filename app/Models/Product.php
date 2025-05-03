@@ -12,7 +12,7 @@ class Product extends Model
     use Translatable;
 
     protected $fillable = [
-        'media', 'catalog_id', 'partner_id', 'update_product_id', 'balance', 'medium_tonnage', 'status', 'is_discount', 'is_main_page', 'last_update_at', 'sort',
+        'media', 'catalog_id', 'partner_id', 'price', 'update_product_id', 'balance', 'medium_tonnage', 'status', 'is_discount', 'is_main_page', 'last_update_at', 'sort',
     ];
 
     protected $translatedAttributes = [
