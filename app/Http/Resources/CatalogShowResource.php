@@ -26,7 +26,7 @@ class CatalogShowResource extends JsonResource
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,
             'created_at' => $this->created_at,
-            'products' => $this->allProducts(),
+            'products' => $this->allProducts($request),
             'filter' => $this->filter_list(),
         ];
     }
