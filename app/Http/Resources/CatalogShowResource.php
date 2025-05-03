@@ -31,9 +31,13 @@ class CatalogShowResource extends JsonResource
         ];
     }
 
-    public function allProducts()
+    public function allProducts($request)
     {
-        return Product::where('catalog_id', $this->id)->get();
+        return Product::where('catalog_id', $this->id)
+        ->when($request->setFilter, function($q){
+            $q->where('thickness', $request->setFilter);
+        })
+        ->get();
     }
 
     public function media()
