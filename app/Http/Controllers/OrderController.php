@@ -18,11 +18,11 @@ class OrderController extends Controller
         ]);
         $order = Order::create($validated);
         $order->products()->attach($request->product_ids);
-        $info = 'Новая заявка отправлено'. PHP_EOL . 'Имя: ' . $order->name . PHP_EOL . 'Телефон: ' . $order->phone;
+        $info = '📌Новая заявка:'. PHP_EOL . '🔸 Имя: ' . $order->name . PHP_EOL . '☎️ Телефон: ' . $order->phone;
         $products = '';
 
         foreach ($request->product_ids as $key => $value) {
-            $products .= 'ID: ' . Product::find($value['product_id'])->id . ' Названия: ' . Product::find($value['product_id'])->title;
+            $products .= '🔸ID: ' . Product::find($value['product_id'])->id . ' 🔸Названия: ' . Product::find($value['product_id'])->title;
         }
 
         $text = $info . PHP_EOL . $products;
