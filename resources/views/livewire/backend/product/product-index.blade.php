@@ -41,6 +41,7 @@
                                                     <th>№</th>
                                                     <th>Названия</th>
                                                     <th>Размер</th>
+                                                    <th>Марка</th>
                                                     <th>Поставщик</th>
                                                     <th>Остаток</th>
                                                     <th>Действия</th>
@@ -58,6 +59,7 @@
                                                             {{ $item->dimensions }}
                                                             @endif
                                                         </td>
+                                                        <td>{{$item->mark ?? ''}}</td>
                                                         <td>
                                                             {{ $item->partner->title }}
                                                         </td>
