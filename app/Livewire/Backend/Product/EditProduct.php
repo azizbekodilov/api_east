@@ -46,6 +46,7 @@ class EditProduct extends Component
         $this->catalog_id = $this->product->catalog_id;
         $this->partner_id = $this->product->partner_id;
         $this->price = $this->product->price;
+        $this->mark = $this->product->mark;
         $this->thickness = $this->product->thickness;
         $this->width = $this->product->width;
         $this->length = $this->product->length;
