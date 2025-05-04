@@ -47,4 +47,4 @@ Route::prefix('/east')
         }
     );
 
-Auth::routes();
+Auth::routes(['register' => false]);
