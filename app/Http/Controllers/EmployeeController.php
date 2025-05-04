@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\OurTeamResource;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return Employee::get();
+        $data = Employee::get();
+        return OurTeamResource::collection($data);
     }
 
     /**
