@@ -5,9 +5,11 @@ namespace App\Livewire\News;
 use App\Models\News;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditNews extends Component
 {
+    use WithFileUploads;
 
     public $news;
 

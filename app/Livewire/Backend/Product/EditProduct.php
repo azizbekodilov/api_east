@@ -7,9 +7,12 @@ use App\Models\Partner;
 use App\Models\Product;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditProduct extends Component
 {
+
+    use WithFileUploads;
 
     #[Rule('nullable')] public $media;
     #[Rule('nullable')] public $catalog_id;

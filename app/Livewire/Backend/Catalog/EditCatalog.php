@@ -5,9 +5,11 @@ namespace App\Livewire\Backend\Catalog;
 use App\Models\Catalog;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class EditCatalog extends Component
 {
+    use WithFileUploads;
 
     public $catalog;
 
