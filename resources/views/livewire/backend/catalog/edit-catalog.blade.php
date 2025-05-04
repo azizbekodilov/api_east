@@ -62,9 +62,14 @@
                                     <label for="">Фото</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="">
+                                            <input type="file" class="custom-file-input" wire:model="new_media">
                                             <label class="custom-file-label" for="">Выберите файл</label>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <div class="input-group">
+                                        <img src="/storage/catalogs/{{$this->media}}" alt="">
                                     </div>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@ class EditCatalog extends Component
 
     public $catalog;
 
-    #[Rule('nullable')] public $media;
+    #[Rule('nullable')] public $new_media;
     #[Rule('nullable')] public $sort;
     #[Rule('nullable')] public $is_main;
     #[Rule('nullable')] public $parent_id;
@@ -44,7 +44,14 @@ class EditCatalog extends Component
 
     public function save()
     {
-        $this->catalog->update($this->validate());
+        $validate = $this->validate();
+        if ($this->new_media != '') {
+            $file = $this->new_media;
+            $file_name = $file->getClientOriginalName();
+            $validate['media'] = $file_name;
+            $this->new_media->storeAs('catalogs', $file_name, 'public');
+        }
+        $this->catalog->update($validate);
         $this->translatable->title = $this->title;
         $this->translatable->slug = $this->slug;
         $this->translatable->text = $this->text;

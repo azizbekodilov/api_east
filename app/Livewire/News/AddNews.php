@@ -32,7 +32,14 @@ class AddNews extends Component
     public function save()
     {
         try {
-            $news = News::create($this->validate());
+            $validate = $this->validate();
+            if ($this->media != '') {
+                $file = $this->media;
+                $file_name = $file->getClientOriginalName();
+                $validate['media'] = $file_name;
+                $this->media->storeAs('catalogs', $file_name, 'public');
+            }
+            $news = News::create($validate);
             NewsTranslation::create(
                 [
                     'title' => $this->title,

@@ -12,7 +12,7 @@ class AddCatalog extends Component
 {
     use WithFileUploads;
 
-    #[Rule('required')] public $media;
+    #[Rule('nullable')] public $media;
     #[Rule('nullable')] public $sort;
     #[Rule('nullable')] public $is_main;
     #[Rule('nullable')] public $parent_id;
@@ -36,7 +36,14 @@ class AddCatalog extends Component
     public function save()
     {
         try {
-            $catalog = Catalog::create($this->validate());
+            $validate = $this->validate();
+            if ($this->media != '') {
+                $file = $this->media;
+                $file_name = $file->getClientOriginalName();
+                $validate['media'] = $file_name;
+                $this->media->storeAs('catalogs', $file_name, 'public');
+            }
+            $catalog = Catalog::create($validate);
             CatalogTranslation::create(
                 [
                     'title' => $this->title,
