@@ -95,8 +95,12 @@
                                     <input type="text" class="form-control" wire:model="price" placeholder="Цена">
                                 </div>
                                 <div class="form-group col-md-3">
-                                    <label for="Цена">Остаток</label>
-                                    <input type="text" class="form-control" wire:model="balance" placeholder="Цена">
+                                    <label for="Марка">Марка</label>
+                                    <input type="text" class="form-control" wire:model="mark" placeholder="Марка">
+                                </div>
+                                <div class="form-group col-md-3">
+                                    <label for="Остаток">Остаток</label>
+                                    <input type="text" class="form-control" wire:model="balance" placeholder="Остаток">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Фото</label>

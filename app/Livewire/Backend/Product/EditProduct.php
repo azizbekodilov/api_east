@@ -21,6 +21,7 @@ class EditProduct extends Component
     #[Rule('nullable')] public $width;
     #[Rule('nullable')] public $length;
     #[Rule('nullable')] public $balance;
+    #[Rule('nullable')] public $mark;
 
     #[Rule('nullable')] public $product_id;
     #[Rule('nullable')] public $title;
@@ -69,6 +70,7 @@ class EditProduct extends Component
             $this->product->thickness = $this->thickness;
             $this->product->width = $this->width;
             $this->product->length = $this->length;
+            $this->product->mark = $this->mark;
             $this->product->balance = $this->balance;
             $this->product->save();
 

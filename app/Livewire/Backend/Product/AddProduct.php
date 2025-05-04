@@ -6,6 +6,7 @@ use App\Models\Catalog;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductTranslation;
+use App\Models\Steel;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -22,6 +23,7 @@ class AddProduct extends Component
     #[Rule('nullable')] public $width;
     #[Rule('nullable')] public $length;
     #[Rule('nullable')] public $balance;
+    #[Rule('nullable')] public $mark;
 
     #[Rule('nullable')] public $product_id;
     #[Rule('nullable')] public $title;
@@ -50,6 +52,7 @@ class AddProduct extends Component
                     'length' => $this->length,
                     'catalog_id' => $this->catalog_id,
                     'partner_id' => $this->partner_id,
+                    'mark' => $this->mark,
                     'price' => $this->price,
                 ]
             );
