@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\Api\CatalogController;
+use App\Http\Controllers\Api\PageController;
 use App\Http\Controllers\Api\PartnerController as ApiPartnerController;
 use App\Http\Controllers\OrderController;
 
@@ -52,6 +53,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     Route::get('/our_team', [EmployeeController::class, 'index']);
     // xamkorlar
     Route::get('/partners', [ApiPartnerController::class, 'index']);
+    Route::get('/pages/{slug}', [PageController::class, 'page']);
 });
 
 Route::post('/request_call', [IndexController::class, 'requestCall']);
