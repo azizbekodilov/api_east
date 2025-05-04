@@ -6,12 +6,13 @@ use App\Models\Catalog;
 use App\Models\Partner;
 use App\Models\Product;
 use App\Models\ProductTranslation;
-use App\Models\Steel;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AddProduct extends Component
 {
+    use WithFileUploads;
 
     #[Rule('nullable')] public $media;
     #[Rule('nullable')] public $catalog_id;
@@ -44,6 +45,12 @@ class AddProduct extends Component
     public function save()
     {
         try {
+            if ($this->media != '') {
+                $file = $this->media;
+                $file_name = $file->getClientOriginalName();
+                $this->media = $file_name;
+                $this->media->storeAs('catalogs', $file_name, 'public');
+            }
             $product = Product::create(
                 [
                     'media' => $this->media,
