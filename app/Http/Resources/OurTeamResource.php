@@ -20,6 +20,9 @@ class OurTeamResource extends JsonResource
             'media' => $this->media(),
             'title' => $this->title,
             'text' => $this->text,
+            'telegram' => $this->telegram,
+            'instagram' => $this->instagram,
+            'phone' => $this->phone,
             'profession' => $this->profession,
             'created_at' => $this->created_at,
         ];

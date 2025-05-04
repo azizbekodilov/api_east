@@ -10,7 +10,7 @@ class Employee extends Model
     use Translatable;
 
     protected $fillable = [
-        'media', 'phone', 'telegram'
+        'media', 'phone', 'telegram', 'instagram'
     ];
 
     public $timestamps = false;
