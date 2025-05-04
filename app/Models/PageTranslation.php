@@ -10,5 +10,11 @@ class PageTranslation extends Model
 
     use Translatable;
 
-    public $translatedAttributes = ['title', 'text', 'slug', 'meta_title', 'meta_description'];
+    public $translatedAttributes = ['title', 'page_id', 'locale', 'text', 'slug', 'meta_title', 'meta_description'];
+
+    public function page()
+    {
+        return $this->belongsTo(Page::class, 'page_id');
+    }
+
 }
