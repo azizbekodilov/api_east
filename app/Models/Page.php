@@ -9,6 +9,6 @@ class Page extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['title', 'text', 'meta_title', 'meta_description'];
+    public $translatedAttributes = ['title', 'text', 'meta_title', 'meta_description', 'slug'];
 
 }
