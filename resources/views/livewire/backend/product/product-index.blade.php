@@ -25,9 +25,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with minimal features &amp; hover style</h3>
-                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
@@ -43,42 +40,37 @@
                                                 <tr>
                                                     <th>№</th>
                                                     <th>Названия</th>
+                                                    <th>Размер</th>
                                                     <th>Поставщик</th>
                                                     <th>Остаток</th>
                                                     <th>Действия</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($collection as $item)
-                                                <tr>
-                                                    <td>{{$item->title}}</td>
-                                                    <td>{{$item->dimensions}}</td>
-                                                    <td>
-                                                        {{$item->partner->title}}
-                                                    </td>
-                                                    <td>{{$item->balance}}</td>
-                                                    <td>
-                                                        <div class="btn-group">
-                                                            <a href="/east/products/{{$item->id}}" class="btn btn-sm btn-secondary">
-                                                                <i class="fa fa-edit"></i>
-                                                            </a>
-                                                            <button disabled class="btn btn-sm btn-danger" wire:click="delete({{$item->id}})">
-                                                                <i class="fa fa-trash"></i>
-                                                            </button>
-                                                        </div>
-                                                    </td>
-                                                </tr>
+                                                @foreach ($collection as $key => $item)
+                                                    <tr>
+                                                        <td>{{ $key + 1 }}</td>
+                                                        <td>{{ $item->title }}</td>
+                                                        <td>{{ $item->dimensions }}</td>
+                                                        <td>
+                                                            {{ $item->partner->title }}
+                                                        </td>
+                                                        <td>{{ $item->balance }}</td>
+                                                        <td>
+                                                            <div class="btn-group">
+                                                                <a href="/east/products/{{ $item->id }}"
+                                                                    class="btn btn-sm btn-secondary">
+                                                                    <i class="fa fa-edit"></i>
+                                                                </a>
+                                                                <button disabled class="btn btn-sm btn-danger"
+                                                                    wire:click="delete({{ $item->id }})">
+                                                                    <i class="fa fa-trash"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
                                             </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <th rowspan="1" colspan="1">Rendering engine</th>
-                                                    <th rowspan="1" colspan="1">Browser</th>
-                                                    <th rowspan="1" colspan="1">Platform(s)</th>
-                                                    <th rowspan="1" colspan="1">Engine version</th>
-                                                    <th rowspan="1" colspan="1">CSS grade</th>
-                                                </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>

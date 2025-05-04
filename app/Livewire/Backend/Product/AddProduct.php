@@ -65,7 +65,7 @@ class AddProduct extends Component
                     'meta_description' => $this->meta_description,
                 ]
             );
-            return redirect('/east/products');
+            return $this->redirect('/east/products');
         } catch (\Throwable $th) {
             dd($th);
         }

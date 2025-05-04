@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Тольшина</label>
-                                    <input type="text" class="form-control" wire:model="thickтess">
+                                    <input type="text" class="form-control" wire:model="thickness">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Длина</label>

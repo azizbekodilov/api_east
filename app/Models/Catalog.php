@@ -11,7 +11,7 @@ class Catalog extends Model
     use Translatable;
 
     protected $fillable = [
-        'media', 'sort', 'parent_id'
+        'media', 'sort', 'parent_id', 'is_main'
     ];
 
     public $translatedAttributes = ['catalog_id', 'title', 'text', 'short_text', 'meta_title', 'meta_description', 'locale'];
