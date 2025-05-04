@@ -3,6 +3,9 @@
 use App\Livewire\Backend\Catalog\AddCatalog;
 use App\Livewire\Backend\Catalog\CatalogIndex;
 use App\Livewire\Backend\Catalog\EditCatalog;
+use App\Livewire\Backend\Employee\AddEmployee;
+use App\Livewire\Backend\Employee\EditEmployee;
+use App\Livewire\Backend\Employee\EmployeeIndex;
 use App\Livewire\Backend\Product\AddProduct;
 use App\Livewire\Backend\Product\EditProduct;
 use App\Livewire\Backend\Product\ProductIndex;
@@ -44,6 +47,9 @@ Route::prefix('/east')
             Route::get("/sliders", SliderIndex::class);
             Route::get("/sliders/add", AddSlider::class);
             Route::get("/sliders/{id}", EditSlider::class);
+            Route::get("/employee", EmployeeIndex::class);
+            Route::get("/employee/add", AddEmployee::class);
+            Route::get("/employee/{id}", EditEmployee::class);
         }
     );
 
