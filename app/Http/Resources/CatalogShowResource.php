@@ -51,7 +51,7 @@ class CatalogShowResource extends JsonResource
 
     public function filter_list()
     {
-        if (count(Product::where('catalog_id', $this->id)->groupBy('height')->pluck('height'))) {
+        if (count(Product::where('catalog_id', $this->id)->groupBy('height')->get())) {
             return Product::where('catalog_id', $this->id)->groupBy('height')->pluck('height');
         } else {
             return Product::where('catalog_id', $this->id)->groupBy('thickness')->pluck('thickness');
