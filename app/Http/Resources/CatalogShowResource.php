@@ -33,20 +33,31 @@ class CatalogShowResource extends JsonResource
 
     public function allProducts($request)
     {
-        $data = Product::where('catalog_id', $this->id)
-        ->when($request->setFilter, function($q) use($request){
-            $q->where('thickness', $request->setFilter);
-        })
-        ->when($request->setDiscount, function($q) use($request){
-            $q->where('is_discount', $request->setDiscount);
-        })
-        ->get();
+        if (count(Product::where('catalog_id', $this->id)->whereNotNull('height')->get())) {
+            $data = Product::where('catalog_id', $this->id)
+                ->when($request->setFilter, function ($q) use ($request) {
+                    $q->where('height', $request->setFilter);
+                })
+                ->when($request->setDiscount, function ($q) use ($request) {
+                    $q->where('is_discount', $request->setDiscount);
+                })
+                ->get();
+        } else {
+            $data = Product::where('catalog_id', $this->id)
+                ->when($request->setFilter, function ($q) use ($request) {
+                    $q->where('thickness', $request->setFilter);
+                })
+                ->when($request->setDiscount, function ($q) use ($request) {
+                    $q->where('is_discount', $request->setDiscount);
+                })
+                ->get();
+        }
         return ProductShowResource::collection($data);
     }
 
     public function media()
     {
-        return URL::secure('/storage/catalogs/'.$this->catalog->media);
+        return URL::secure('/storage/catalogs/' . $this->catalog->media);
     }
 
     public function filter_list()
