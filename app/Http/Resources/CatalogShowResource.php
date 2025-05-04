@@ -20,7 +20,7 @@ class CatalogShowResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media(),
-            'title' => $this->title . ' ' . $this->addTitle,
+            'title' => $this->title . ' ' . $this->addTitle(),
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
