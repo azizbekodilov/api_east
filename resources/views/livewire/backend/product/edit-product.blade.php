@@ -78,7 +78,7 @@
                                     <input type="text" wire:model="short_text" class="form-control"
                                         placeholder="Короткий текст">
                                 </div>
-                                <div class="form-group col-md-12">
+                                <div class="form-group col-md-12" wire:ignore>
                                     <label for="">Текст</label>
                                     <textarea wire:model="text" id="summernote" class="form-control" placeholder="Короткий текст"></textarea>
                                 </div>
