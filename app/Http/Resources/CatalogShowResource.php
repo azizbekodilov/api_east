@@ -37,6 +37,9 @@ class CatalogShowResource extends JsonResource
         ->when($request->setFilter, function($q) use($request){
             $q->where('thickness', $request->setFilter);
         })
+        ->when($request->setDiscount, function($q) use($request){
+            $q->where('is_discount', $request->setDiscount);
+        })
         ->get();
         return ProductShowResource::collection($data);
     }
