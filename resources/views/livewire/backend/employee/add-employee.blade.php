@@ -60,7 +60,7 @@
                                     <label for="">Фото</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" id="">
+                                            <input type="file" class="custom-file-input" wire:model="media">
                                             <label class="custom-file-label" for="">Выберите файл</label>
                                         </div>
                                     </div>

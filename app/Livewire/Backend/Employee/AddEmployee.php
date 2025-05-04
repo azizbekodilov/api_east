@@ -18,11 +18,11 @@ class AddEmployee extends Component
     #[Rule('required')] public $telegram;
     #[Rule('required')] public $sort;
 
-    public $title;
-    public $profession;
-    public $text;
-    public $locale;
-    public $employee_id;
+        public $title;
+        public $profession;
+        public $text;
+        public $locale;
+        public $employee_id;
 
     public function mount()
     {
