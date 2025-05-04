@@ -46,7 +46,7 @@ class CatalogShowResource extends JsonResource
 
     public function media()
     {
-        return URL::secure('/storage/products/'.$this->catalog->media);
+        return URL::secure('/storage/catalogs/'.$this->catalog->media);
     }
 
     public function filter_list()
