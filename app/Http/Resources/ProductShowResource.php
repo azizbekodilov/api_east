@@ -18,7 +18,7 @@ class ProductShowResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media(),
-            'title' => $this->title . ' ' . $this->dimensions,
+            'title' => $this->title . ' ' . $this->addTitle(),
             'text' => $this->text,
             'price' => $this->price,
             'mark' => $this->mark,
@@ -47,6 +47,18 @@ class ProductShowResource extends JsonResource
     public function media()
     {
         return URL::secure('/storage/products/'.$this->media);
+    }
+
+    public function addTitle()
+    {
+        if ($this->length) {
+            return $this->thickness . 'x' . $this->width . 'х' . $this->length;
+        } elseif($this->width) {
+            return $this->thickness . 'x' . $this->width;
+        } else {
+            return $this->thickness;
+        }
+
     }
 
 }
