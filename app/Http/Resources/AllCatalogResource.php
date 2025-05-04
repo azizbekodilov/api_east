@@ -20,6 +20,7 @@ class AllCatalogResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug(),
+            'slug' => $this->media(),
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
@@ -32,6 +33,11 @@ class AllCatalogResource extends JsonResource
     public function slug()
     {
         return URL::secure('/api/'.app()->getLocale().'/catalogs/'.$this->slug);
+    }
+
+    public function media()
+    {
+        return URL::secure('/storage/catalogs/'.$this->media);
     }
 
     public function children_for_main()
