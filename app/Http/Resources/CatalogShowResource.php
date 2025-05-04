@@ -20,7 +20,7 @@ class CatalogShowResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media(),
-            'title' => $this->title,
+            'title' => $this->title . ' ' . $this->addTitle,
             'text' => $this->text,
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
@@ -43,6 +43,18 @@ class CatalogShowResource extends JsonResource
     public function media()
     {
         return URL::secure('/storage/products/'.$this->catalog->media);
+    }
+
+    public function addTitle()
+    {
+        if ($this->catalog->length) {
+            return $this->catalog->thickness . 'x' . $this->catalog->width . 'х' . $this->catalog->length;
+        } elseif($this->catalog->width) {
+            return $this->catalog->thickness . 'x' . $this->catalog->width;
+        } else {
+            return $this->catalog->thickness;
+        }
+
     }
 
     public function filter_list()
