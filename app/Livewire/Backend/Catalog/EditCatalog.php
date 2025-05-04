@@ -20,6 +20,7 @@ class EditCatalog extends Component
     public $short_text;
     public $text;
     public $meta_title;
+    public $media;
     public $meta_description;
     public $slug;
     public $locale;
@@ -32,6 +33,7 @@ class EditCatalog extends Component
         $this->catalog = Catalog::find($id);
         $this->parent_id = $this->catalog->parent_id;
         $this->sort = $this->catalog->parent_id;
+        $this->media = $this->catalog->media;
         $this->is_main = $this->catalog->is_main;
         $this->translatable = $this->catalog->catalogTanslation->where('locale', $this->locale)->first();
         $this->title = $this->translatable->title;
