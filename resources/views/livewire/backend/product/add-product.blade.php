@@ -72,6 +72,11 @@
                                         placeholder="Короткий текст">
                                 </div>
                                 <div class="form-group col-md-12">
+                                    <label for="">Текст</label>
+                                    <input type="text" wire:model="text" id="summernote" class="form-control"
+                                        placeholder="Текст">
+                                </div>
+                                <div class="form-group col-md-12">
                                     <label for="">Мета заголовок</label>
                                     <input type="text" wire:model="meta_title" class="form-control"
                                         placeholder="Мета заголовок">
