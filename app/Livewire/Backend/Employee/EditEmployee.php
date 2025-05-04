@@ -39,6 +39,14 @@ class EditEmployee extends Component
         $this->text = $this->translatable->text;
     }
 
+    public function updateMedia()
+    {
+        $file = $this->media;
+        $file_name = $file->getClientOriginalName();
+        $validate['media'] = $file_name;
+        $this->media->storeAs('employees', $file_name, 'public');
+    }
+
     public function save()
     {
         $this->employee->update($this->validate());
