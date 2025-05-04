@@ -7,10 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PageTranslation extends Model
 {
-
-    use Translatable;
-
-    public $translatedAttributes = ['title', 'page_id', 'locale', 'text', 'slug', 'meta_title', 'meta_description'];
+    protected $fillable = ['title', 'page_id', 'locale', 'text', 'slug', 'meta_title', 'meta_description'];
 
     public function page()
     {
