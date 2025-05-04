@@ -7,6 +7,12 @@ use Livewire\Component;
 
 class EmployeeIndex extends Component
 {
+
+    public function mount()
+    {
+        app()->setLocale('ru');
+    }
+
     public function render()
     {
         $collection = Employee::get();
