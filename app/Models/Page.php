@@ -9,9 +9,9 @@ class Page extends Model
 {
     use Translatable;
 
-    public $translatedAttributes = ['title', 'text', 'meta_title', 'meta_description', 'slug'];
+    public $translatedAttributes = ['title', 'text', 'locale', 'page_id', 'meta_title', 'meta_description', 'slug'];
 
-    public function getPageTranslation()
+    public function pageTranslation()
     {
         return $this->hasMany(PageTranslation::class);
     }
