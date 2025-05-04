@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group col-md-3">
                                     <div class="input-group">
-                                        <img src="/storage/catalogs/{{$this->media}}" alt="">
+                                        <img src="{{Illuminate\Support\Facades\URL::secure('/storage/catalogs/'.$this->media)}}" alt="">
                                     </div>
                                 </div>
                             </div>
