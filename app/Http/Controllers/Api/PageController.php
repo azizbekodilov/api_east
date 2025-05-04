@@ -5,15 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PageResource;
 use App\Models\Page;
-use App\Models\PageTranslation;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
     public function page(Request $request)
     {
-        return Page::whereHas('pageTranslation', function($q) use($request){
+        return PageResource::collection(Page::whereHas('getPageTranslation', function($q) use($request){
             $q->where('slug', $request->slug);
-        })->get();
+        })->get());
     }
 }
