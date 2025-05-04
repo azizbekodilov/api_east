@@ -18,6 +18,7 @@ class PromotionResource extends JsonResource
         return [
             'id' => $this->id,
             'media' => $this->media(),
+            'discount' => $this->discount(),
             'title' => $this->title,
             'dimensions' => $this->dimensions,
             'mark' => $this->mark,
@@ -29,5 +30,9 @@ class PromotionResource extends JsonResource
     public function media()
     {
         return URL::secure('/storage/products/'.$this->media);
+    }
+    public function discount()
+    {
+        return URL::secure('/storage/discounts/'.$this->discount_media);
     }
 }
