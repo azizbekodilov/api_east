@@ -11,6 +11,8 @@ class PageController extends Controller
 {
     public function page(Request $request)
     {
-        return PageTranslation::where('slug', $request)->where('locale', app()->setLocale('ru'))->first();
+        return Page::whereHas('pageTranslation', function($q) use($request){
+            $q->where('slug', $request);
+        })->first();
     }
 }
