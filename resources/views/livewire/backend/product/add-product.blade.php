@@ -44,19 +44,23 @@
                                     <label for="">Тольшина</label>
                                     <input type="text" class="form-control" wire:model="thickness">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Длина</label>
                                     <input type="text" class="form-control" wire:model="width">
                                     @error('width')
-                                        <span class="error invalid-feedback">Длинв не найдно</span>
+                                        <span class="error invalid-feedback">Длина не найдно</span>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Ширина</label>
                                     <input type="text" class="form-control" wire:model="length">
                                     @error('length')
                                         <span class="error invalid-feedback">Ширина не найдно</span>
                                     @enderror
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="Марка">Марка</label>
+                                    <input type="text" class="form-control" wire:model="mark" placeholder="Марка">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="">Названия</label>
@@ -98,10 +102,6 @@
                                 <div class="form-group col-md-3">
                                     <label for="Цена">Цена</label>
                                     <input type="text" class="form-control" wire:model="price" placeholder="Цена">
-                                </div>
-                                <div class="form-group col-md-3">
-                                    <label for="Марка">Марка</label>
-                                    <input type="text" class="form-control" wire:model="mark" placeholder="Марка">
                                 </div>
                                 <div class="form-group col-md-3">
                                     <label for="Остаток">Остаток</label>
