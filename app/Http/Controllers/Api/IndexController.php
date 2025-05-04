@@ -109,10 +109,10 @@ class IndexController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;
-        $data = Product::whereHas('productTranslations', function($q) use($search){
+        $data = Product::whereHas('productTranslations', function($q) use($search) {
             $q->where('title', 'LIKE', '%' . $search . '%');
             $q->orWhere('text', 'LIKE', '%' . $search . '%');
-        });
+        })->get();
 
         return response()->json($data);
     }
