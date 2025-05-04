@@ -23,6 +23,7 @@ class EditProduct extends Component
     #[Rule('nullable')] public $thickness;
     #[Rule('nullable')] public $width;
     #[Rule('nullable')] public $length;
+    #[Rule('nullable')] public $height;
     #[Rule('nullable')] public $balance;
     #[Rule('nullable')] public $mark;
 
@@ -53,6 +54,7 @@ class EditProduct extends Component
         $this->thickness = $this->product->thickness;
         $this->width = $this->product->width;
         $this->length = $this->product->length;
+        $this->height = $this->product->height;
         $this->balance = $this->product->balance;
         // translatable table
         $this->translaTable = $this->product->productTranslations->where('locale',$this->locale)->first();
@@ -74,6 +76,7 @@ class EditProduct extends Component
             $this->product->thickness = $this->thickness;
             $this->product->width = $this->width;
             $this->product->length = $this->length;
+            $this->product->height = $this->height;
             $this->product->mark = $this->mark;
             $this->product->balance = $this->balance;
             $this->product->save();

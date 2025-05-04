@@ -53,7 +53,9 @@
                                                         <td>{{ $key + 1 }}</td>
                                                         <td>{{ $item->title }} </td>
                                                         <td>
-                                                            @if($item->thickness != null)
+                                                            @if($item->height)
+                                                            {{$item->width ?? ''}} {{$item->height ?? ''}} {{$item->thickness ?? ''}} {{$item->length ?? ''}}
+                                                            @elseif($item->thickness != null)
                                                             {{$item->thickness ?? ''}} {{$item->width ?? ''}} {{$item->length ?? ''}}
                                                             @else
                                                             {{ $item->dimensions }}

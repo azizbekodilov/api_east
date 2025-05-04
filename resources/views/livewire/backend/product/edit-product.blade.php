@@ -40,22 +40,29 @@
                                         @endforeach
                                     </select>
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Тольшина</label>
                                     <input type="text" class="form-control" wire:model="thickness">
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Длина</label>
                                     <input type="text" class="form-control" wire:model="width">
                                     @error('width')
                                         <span class="error invalid-feedback">Длинв не найдно</span>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-3">
+                                <div class="form-group col-md-2">
                                     <label for="">Ширина</label>
                                     <input type="text" class="form-control" wire:model="length">
                                     @error('length')
                                         <span class="error invalid-feedback">Ширина не найдно</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-2">
+                                    <label for="">Высота</label>
+                                    <input type="text" class="form-control" wire:model="height">
+                                    @error('height')
+                                        <span class="error invalid-feedback">Высота не найдно</span>
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-12">

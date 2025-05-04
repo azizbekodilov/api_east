@@ -23,6 +23,7 @@ class AddProduct extends Component
     #[Rule('nullable')] public $thickness;
     #[Rule('nullable')] public $width;
     #[Rule('nullable')] public $length;
+    #[Rule('nullable')] public $height;
     #[Rule('nullable')] public $balance;
     #[Rule('nullable')] public $mark;
 
@@ -57,6 +58,7 @@ class AddProduct extends Component
                     'thickness' => $this->thickness,
                     'width' => $this->width,
                     'length' => $this->length,
+                    'height' => $this->height,
                     'catalog_id' => $this->catalog_id,
                     'partner_id' => $this->partner_id,
                     'mark' => $this->mark,

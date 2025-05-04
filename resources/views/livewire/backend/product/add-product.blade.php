@@ -59,6 +59,13 @@
                                     @enderror
                                 </div>
                                 <div class="form-group col-md-2">
+                                    <label for="">Высота</label>
+                                    <input type="text" class="form-control" wire:model="height">
+                                    @error('height')
+                                        <span class="error invalid-feedback">Высота не найдно</span>
+                                    @enderror
+                                </div>
+                                <div class="form-group col-md-2">
                                     <label for="Марка">Марка</label>
                                     <input type="text" class="form-control" wire:model="mark" placeholder="Марка">
                                 </div>

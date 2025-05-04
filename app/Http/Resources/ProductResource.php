@@ -20,7 +20,7 @@ class ProductResource extends JsonResource
         return [
             'id' =>  $this->id,
             'product_id'=>$this->product->id,
-            'title' => $this->title . ' ' . $this->dimensions,
+            'title' => $this->title . ' ' . $this->dimensions(),
             'name' => $this->text,
             'media' => $this->media(),
             'slug' => $this->slug(),
@@ -55,6 +55,19 @@ class ProductResource extends JsonResource
     public function media()
     {
         return URL::secure('/storage/products/'.$this->media);
+    }
+
+    public function dimensions()
+    {
+        if($this->height) {
+            return $this->width . 'x' . $this->height . 'x' . $this->thickness . 'x' . $this->length;
+        } elseif ($this->length) {
+            return $this->thickness . 'x' . $this->width . 'х' . $this->length;
+        } elseif($this->width) {
+            return $this->thickness . 'x' . $this->width;
+        } else {
+            return $this->thickness;
+        }
     }
 
 }

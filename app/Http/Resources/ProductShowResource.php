@@ -51,14 +51,15 @@ class ProductShowResource extends JsonResource
 
     public function addTitle()
     {
-        if ($this->length) {
+        if($this->height) {
+            return $this->width . 'x' . $this->height . 'x' . $this->thickness . 'x' . $this->length;
+        } elseif ($this->length) {
             return $this->thickness . 'x' . $this->width . 'х' . $this->length;
         } elseif($this->width) {
             return $this->thickness . 'x' . $this->width;
         } else {
             return $this->thickness;
         }
-
     }
 
 }
