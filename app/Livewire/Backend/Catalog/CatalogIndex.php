@@ -16,7 +16,7 @@ class CatalogIndex extends Component
 
     public function render()
     {
-        $collection = Catalog::with('children')->get();
+        $collection = Catalog::with('children')->orderByDesc('created_at')->get();
         return view('livewire.backend.catalog.catalog-index', compact('collection'))->extends('adminlte::page');
     }
 }

@@ -15,7 +15,7 @@ class SliderIndex extends Component
 
     public function render()
     {
-        $collection = Slider::get();
+        $collection = Slider::orderByDesc('created_at')->get();
         return view('livewire.slider.slider-index', compact('collection'))->extends('adminlte::page');
     }
 }

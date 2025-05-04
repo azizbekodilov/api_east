@@ -15,7 +15,7 @@ class NewsIndex extends Component
 
     public function render()
     {
-        $collection = News::get();
+        $collection = News::orderByDesc('created_at')->get();
         return view('livewire.news.news-index', compact('collection'))->extends('adminlte::page');
     }
 }

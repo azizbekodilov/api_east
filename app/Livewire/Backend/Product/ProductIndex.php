@@ -16,7 +16,7 @@ class ProductIndex extends Component
 
     public function render()
     {
-        $collection = Product::get();
+        $collection = Product::orderByDesc('created_at')->get();
         return view('livewire.backend.product.product-index', compact('collection'))->extends('adminlte::page');
     }
 }
