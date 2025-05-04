@@ -11,8 +11,8 @@ class PageController extends Controller
 {
     public function page(Request $request)
     {
-        return PageResource::collection(Page::whereHas('getPageTranslation', function($q) use($request){
+        return Page::whereHas('getPageTranslation', function($q) use($request){
             $q->where('slug', $request->slug);
-        })->get());
+        })->get();
     }
 }
