@@ -8,6 +8,7 @@ use App\Http\Requests\StoreRequestPriceRequest;
 use App\Http\Resources\AllCatalogResource;
 use App\Http\Resources\Main\SliderMainResource;
 use App\Http\Resources\MainOurCatalogResource;
+use App\Http\Resources\NewsMainResource;
 use App\Http\Resources\NewsResource;
 use App\Http\Resources\ProductResource;
 use App\Http\Resources\PromotionResource;
@@ -41,7 +42,7 @@ class IndexController extends Controller
      */
     public function news()
     {
-        return NewsResource::collection((News::get()));
+        return NewsMainResource::collection((News::get()));
     }
 
     /**
