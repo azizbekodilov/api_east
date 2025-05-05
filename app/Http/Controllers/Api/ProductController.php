@@ -47,7 +47,9 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return ProductShowResource::collection(Product::where('id',$request->slug)->get());
+        return ProductShowResource::collection(Product::whereHas('productTranslations', function($q) use($request){
+            $q->where('slug',$request->slug);
+        })->get());
     }
 
     /**
