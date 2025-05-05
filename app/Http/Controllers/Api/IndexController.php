@@ -41,7 +41,7 @@ class IndexController extends Controller
      */
     public function news()
     {
-        return NewsResource::collection((News::with('newsTranslation')->get()));
+        return NewsResource::collection((News::get()));
     }
 
     /**
