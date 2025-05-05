@@ -43,7 +43,7 @@ Route::middleware([Localization::class])->prefix('{locale}')->group(function () 
     // katalogda tanlangan tovarlar ro'yxati
     Route::get("/products/{slug}", [ProductController::class, 'index']);
     // tovar haqida ma'lumot
-    Route::get("/products_info/{id}", [ProductController::class, 'show']);
+    Route::get("/products_info/{slug}", [ProductController::class, 'show']);
     // yangiliklar
     Route::get("/news", [NewsController::class, 'index']);
     // yangilik haqida ma'lumot

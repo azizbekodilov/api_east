@@ -47,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(Request $request)
     {
-        return ProductShowResource::collection(Product::where('id',$request->id)->get());
+        return ProductShowResource::collection(Product::where('id',$request->slug)->get());
     }
 
     /**
