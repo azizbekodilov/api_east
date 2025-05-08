@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\URL;
@@ -24,12 +25,17 @@ class NewsResource extends JsonResource
             'meta_title' => $this->meta_title,
             'meta_description' => $this->meta_description,
             'locale' => $this->locale,
-            'created_at' => $this->created_at,
+            'created_at' => $this->created_at(),
         ];
     }
 
     public function media()
     {
         return URL::asset('/storage/news/'.$this->media);
+    }
+
+    public function created_at()
+    {
+        return Carbon::parse($this->created_at)->format('d.m.Y');
     }
 }
