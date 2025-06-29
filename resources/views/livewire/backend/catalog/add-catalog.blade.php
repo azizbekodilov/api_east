@@ -63,7 +63,7 @@
                                     <select wire:model="parent_id" class="form-control">
                                         <option value="">Выберите подкаталог</option>
                                         @foreach ($catalogs as $catalog)
-                                            <option value="{{ $catalog->id }}">{{ $catalog->name }}</option>
+                                            <option value="{{ $catalog->id }}">{{ $catalog->title }}</option>
                                         @endforeach
                                     </select>
                                 </div>
