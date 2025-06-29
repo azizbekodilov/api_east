@@ -15,7 +15,7 @@ class AddCatalog extends Component
     #[Rule('required')] public $media;
     #[Rule('nullable')] public $sort;
     #[Rule('nullable')] public $is_main;
-    #[Rule('nullable')] public $parent_id = 0;
+    #[Rule('nullable')] public $parent_id = null;
 
     public $title;
     public $short_text;
@@ -64,7 +64,7 @@ class AddCatalog extends Component
 
     public function render()
     {
-        $catalogs = Catalog::where('parent_id', 0)->get();
+        $catalogs = Catalog::where('parent_id', null)->get();
         return view('livewire.backend.catalog.add-catalog', compact('catalogs'))->extends('adminlte::page');
     }
 }
