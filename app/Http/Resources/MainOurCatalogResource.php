@@ -37,7 +37,7 @@ class MainOurCatalogResource extends JsonResource
 
     private function media()
     {
-        return "https://api.eastmetprokat.uz/storage/catalogs".$this->media;
+        return "https://api.eastmetprokat.uz/storage/catalogs/".$this->media;
     }
 
 }
