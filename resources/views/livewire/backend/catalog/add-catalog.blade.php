@@ -62,7 +62,12 @@
                                     <label for="">Фото</label>
                                     <div class="input-group">
                                         <div class="custom-file">
-                                            <input type="file" class="custom-file-input" wire:model="media">
+                                            <input type="file" class="custom-file-input" wire:model.lazy="media">
+                                            <div class="img-thumnail">
+                                                @if ($media != '')
+                                                    <img src="{{ asset('storage/catalogs/'.$media) }}" alt="">
+                                                @endif
+                                            </div>
                                             <label class="custom-file-label" for="">Выберите файл</label>
                                         </div>
                                     </div>

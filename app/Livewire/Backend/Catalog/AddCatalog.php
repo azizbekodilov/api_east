@@ -37,11 +37,11 @@ class AddCatalog extends Component
     {
         try {
             $validate = $this->validate();
-            if ($this->media != '') {
+            if ($this->media instanceof \Illuminate\Http\UploadedFile) {
                 $file = $this->media;
-                $file_name = $file->getClientOriginalName();
+                $file_name = time() . '_' . $file->getClientOriginalName(); // unique file name
                 $validate['media'] = $file_name;
-                $this->media->storeAs('catalogs', $file_name, 'public');
+                $file->storeAs('catalogs', $file_name, 'public');
             }
             $catalog = Catalog::create($validate);
             CatalogTranslation::create(
