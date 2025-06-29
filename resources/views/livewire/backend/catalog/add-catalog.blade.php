@@ -58,6 +58,15 @@
                                     <input type="text" wire:model="meta_description" class="form-control"
                                         placeholder="Мета описания">
                                 </div>
+                                <div class="form-group col-md-12">
+                                    <label for="">Подкаталог</label>
+                                    <select wire:model="parent_id" class="form-control">
+                                        <option value="">Выберите подкаталог</option>
+                                        @foreach ($catalogs as $catalog)
+                                            <option value="{{ $catalog->id }}">{{ $catalog->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                                 <div class="form-group col-md-3">
                                     <label for="">Фото</label>
                                     <div class="input-group">

@@ -12,10 +12,10 @@ class AddCatalog extends Component
 {
     use WithFileUploads;
 
-    #[Rule('nullable')] public $media;
+    #[Rule('required')] public $media;
     #[Rule('nullable')] public $sort;
     #[Rule('nullable')] public $is_main;
-    #[Rule('nullable')] public $parent_id;
+    #[Rule('nullable')] public $parent_id = 0;
 
     public $title;
     public $short_text;
@@ -64,6 +64,7 @@ class AddCatalog extends Component
 
     public function render()
     {
-        return view('livewire.backend.catalog.add-catalog')->extends('adminlte::page');
+        $catalogs = Catalog::where('parent_id', 0)->get();
+        return view('livewire.backend.catalog.add-catalog', compact('catalogs'))->extends('adminlte::page');
     }
 }
