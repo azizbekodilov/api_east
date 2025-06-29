@@ -67,8 +67,8 @@ class IndexController extends Controller
     public function ourCatalog()
     {
         return MainOurCatalogResource::collection(Catalog::with(['children_for_main'=>function($query) {
-            return $query->limit(4);
-        }])->where('parent_id',null)->take(4)->get());
+            return $query->limit(10);
+        }])->where('parent_id',null)->take(10)->get());
     }
 
     /**
