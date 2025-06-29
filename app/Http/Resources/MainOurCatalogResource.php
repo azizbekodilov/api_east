@@ -31,7 +31,7 @@ class MainOurCatalogResource extends JsonResource
         {
             $q->where('parent_id', $this->id);
         }
-        )->take(4)->get();
+        )->take(10)->get();
         return CatalogTranslationTitleSlugResource::collection($data);
     }
 

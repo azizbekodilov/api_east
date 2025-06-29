@@ -3,28 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CallRequestStoreRequest;
-use App\Http\Requests\StoreRequestPriceRequest;
-use App\Http\Resources\AllCatalogResource;
+use App\Http\Requests\{CallRequestStoreRequest,StoreRequestPriceRequest};
 use App\Http\Resources\Main\SliderMainResource;
-use App\Http\Resources\MainOurCatalogResource;
-use App\Http\Resources\NewsMainResource;
-use App\Http\Resources\NewsResource;
-use App\Http\Resources\ProductResource;
-use App\Http\Resources\PromotionResource;
-use App\Models\CallRequests;
-use App\Models\Catalog;
-use App\Models\CertificateTranslation;
-use App\Models\News;
-use App\Models\NewsTranslation;
-use App\Models\Product;
-use App\Models\ProductTranslation;
-use App\Models\Promotion;
-use App\Models\RequestPrice;
-use App\Models\Slider;
-use App\Models\SliderTranslation;
+use App\Http\Resources\{MainOurCatalogResource,NewsMainResource,ProductResource,PromotionResource};
+use App\Models\{CallRequests,Catalog,CertificateTranslation,News,Product,ProductTranslation,RequestPrice,Slider};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Telegram\Bot\Laravel\Facades\Telegram;
 
 class IndexController extends Controller
 {
@@ -66,9 +51,7 @@ class IndexController extends Controller
      */
     public function ourCatalog()
     {
-        return MainOurCatalogResource::collection(Catalog::with(['children_for_main'=>function($query) {
-            return $query->limit(10);
-        }])->where('parent_id',null)->take(10)->get());
+        return MainOurCatalogResource::collection(Catalog::with('children_for_main')->where('parent_id',null)->take(10)->get());
     }
 
     /**
@@ -90,6 +73,13 @@ class IndexController extends Controller
     {
         $validated = $request->validated();
         CallRequests::create($validated);
+        $text = '📌Новая заявка:'. PHP_EOL . '🔸 Имя: ' . $validated['name'] . PHP_EOL . '☎️ Телефон: ' . $validated['phone'];
+        Telegram::sendMessage(
+            [
+                'chat_id' => '-1001833643884',
+                'text' => $text,
+            ]
+        );
         return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
@@ -97,6 +87,13 @@ class IndexController extends Controller
     {
         $validated = $request->validated();
         CallRequests::create($validated);
+        $text = '📌Новая заявка:'. PHP_EOL . '🔸 Имя: ' . $validated['name'] . PHP_EOL . '☎️ Телефон: ' . $validated['phone'];
+        Telegram::sendMessage(
+            [
+                'chat_id' => '-1001833643884',
+                'text' => $text,
+            ]
+        );
         return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
