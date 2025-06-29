@@ -18,7 +18,7 @@ class MainOurCatalogResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'media' => $this->media,
+            'media' => $this->media(),
             'title' => $this->title,
             'locale' => $this->locale,
             'children_cats' => $this->children_for_main()
@@ -33,6 +33,11 @@ class MainOurCatalogResource extends JsonResource
         }
         )->take(4)->get();
         return CatalogTranslationTitleSlugResource::collection($data);
+    }
+
+    private function media()
+    {
+        return "https://api.eastmetprokat.uz/storage/catalogs".$this->media;
     }
 
 }
