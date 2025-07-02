@@ -46,11 +46,12 @@ class AddProduct extends Component
     public function save()
     {
         try {
-            if ($this->media != '') {
+            if ($this->media instanceof \Illuminate\Http\UploadedFile) {
                 $file = $this->media;
-                $file_name = $file->getClientOriginalName();
-                $this->media = $file_name;
-                $this->media->storeAs('catalogs', $file_name, 'public');
+                $file_name = time() . '_' . $file->getClientOriginalName(); // unique file name
+                $validate['media'] = $file_name;
+                $file->storeAs('products', $file_name, 'public');
+
             }
             $product = Product::create(
                 [
