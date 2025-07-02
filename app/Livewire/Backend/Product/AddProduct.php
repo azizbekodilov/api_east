@@ -49,9 +49,8 @@ class AddProduct extends Component
             if ($this->media instanceof \Illuminate\Http\UploadedFile) {
                 $file = $this->media;
                 $file_name = time() . '_' . $file->getClientOriginalName(); // unique file name
-                $validate['media'] = $file_name;
+                $this->media = $file_name;
                 $file->storeAs('products', $file_name, 'public');
-
             }
             $product = Product::create(
                 [
