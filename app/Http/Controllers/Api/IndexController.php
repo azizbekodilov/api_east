@@ -101,6 +101,13 @@ class IndexController extends Controller
     {
         $validated = $request->validated();
         RequestPrice::create($validated);
+        $text = '📌Новая заявка на цену:'. PHP_EOL . '☎️ Телефон: ' . $validated['phone'];
+        Telegram::sendMessage(
+            [
+                'chat_id' => '-1001833643884',
+                'text' => $text,
+            ]
+        );
         return response()->json(['success' => 'true', 'message' => 'Ваши сообщение успешьно отправлено']);
     }
 
