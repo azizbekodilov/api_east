@@ -38,7 +38,7 @@ class MainOurCatalogResource extends JsonResource
 
     public function slug()
     {
-        $slug = CatalogTranslation::where('catalog_id', $this->id)->where('locale', $this->locale)->first();
+        $slug = CatalogTranslation::where('catalog_id', $this->id)->where('locale', $this->locale)->first()->slug;
         return $slug;
     }
 
