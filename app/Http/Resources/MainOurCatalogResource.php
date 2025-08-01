@@ -21,6 +21,7 @@ class MainOurCatalogResource extends JsonResource
             'media' => $this->media(),
             'title' => $this->title,
             'locale' => $this->locale,
+            'slug' => $this->slug,
             'children_cats' => $this->children_for_main()
         ];
     }
