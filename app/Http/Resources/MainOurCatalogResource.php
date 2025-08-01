@@ -21,7 +21,7 @@ class MainOurCatalogResource extends JsonResource
             'media' => $this->media(),
             'title' => $this->title,
             'locale' => $this->locale,
-            'slug' => $this->slug,
+            'slug' => $this->slug(),
             'children_cats' => $this->children_for_main()
         ];
     }
@@ -34,6 +34,12 @@ class MainOurCatalogResource extends JsonResource
         }
         )->take(10)->get();
         return CatalogTranslationTitleSlugResource::collection($data);
+    }
+
+    public function slug()
+    {
+        $slug = CatalogTranslation::where('catalog_id', $this->id)->where('locale', $this->locale)->first();
+        return $slug;
     }
 
     private function media()
